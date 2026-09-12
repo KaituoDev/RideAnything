@@ -8,7 +8,7 @@
 
 This mod allows you to configure what types of mobs can be ridden in Minecraft. There are three modes:
 * **Only Animals** - Only entities that extend AnimalEntity, list shown below.
-* **All** - All living entities.
+* **All** - All mobs, including bosses, but excluding players and non-mob living entities such as armor stands and mannequins.
 * **Custom** - Custom entities defined in a list
 
 The default mode is **Only Animals**.

@@ -11,7 +11,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import xyz.telecter.rideanything.config.RideAnythingConfig;
 
 public class RideAnythingMod implements ModInitializer {
@@ -37,7 +37,7 @@ public class RideAnythingMod implements ModInitializer {
 	public static boolean shouldRide(Player player, Entity entity) {
 		RideAnythingConfig config = RideAnythingConfig.HANDLER.instance();
 		if ((config.mode == RideAnythingConfig.Mode.ANIMALS && entity instanceof Animal)
-				|| (config.mode == RideAnythingConfig.Mode.ALL && entity instanceof LivingEntity)) {
+				|| (config.mode == RideAnythingConfig.Mode.ALL && entity instanceof Mob)) {
 			return true;
 		}
 		if (config.mode == RideAnythingConfig.Mode.CUSTOM) {
