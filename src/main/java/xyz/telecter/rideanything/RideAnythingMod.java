@@ -36,19 +36,20 @@ public class RideAnythingMod implements ModInitializer {
 
 	public static boolean shouldRide(Player player, Entity entity) {
 		RideAnythingConfig config = RideAnythingConfig.HANDLER.instance();
-		if ((config.mode == RideAnythingConfig.Mode.ANIMALS && entity instanceof Animal)
-				|| (config.mode == RideAnythingConfig.Mode.ALL && entity instanceof Mob)) {
-			return true;
-		}
-		if (config.mode == RideAnythingConfig.Mode.CUSTOM) {
-			Identifier origId = EntityType.getKey(entity.getType());
+		return switch (config.mode) {
+			case ANIMALS -> entity instanceof Animal;
+			case ALL -> entity instanceof Mob;
+			case CUSTOM -> isListed(entity, config.allowed);
+			case BLACKLIST -> entity instanceof Mob && !isListed(entity, config.denied);
+		};
+	}
 
-			for (String s : config.allowed) {
-				Identifier id = Identifier.parse(s);
+	private static boolean isListed(Entity entity, Iterable<String> configuredEntities) {
+		Identifier entityId = EntityType.getKey(entity.getType());
 
-				if (origId.equals(id)) {
-					return true;
-				}
+		for (String configuredEntity : configuredEntities) {
+			if (entityId.equals(Identifier.parse(configuredEntity))) {
+				return true;
 			}
 		}
 

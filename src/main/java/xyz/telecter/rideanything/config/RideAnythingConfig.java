@@ -50,11 +50,18 @@ public class RideAnythingConfig {
         @ListGroup(controllerFactory = StringControllerFactory.class, valueFactory = StringValueFactory.class)
         public List<String> allowed = Collections.emptyList();
 
+        @SerialEntry
+        @AutoGen(category = "general")
+        @ListGroup(controllerFactory = StringControllerFactory.class, valueFactory = StringValueFactory.class)
+        public List<String> denied = Collections.emptyList();
+
         public enum Mode {
                 @SerializedName("all")
                 ALL,
                 @SerializedName("custom")
                 CUSTOM,
+                @SerializedName("blacklist")
+                BLACKLIST,
                 @SerializedName("animals")
                 ANIMALS
         }

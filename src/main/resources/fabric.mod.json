@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "rideanything",
-  "version": "2.0.0+26.2",
+  "version": "2.1.0+26.2",
   "name": "RideAnything",
   "description": "Ride any animal in the game.",
   "authors": ["telecter"],
