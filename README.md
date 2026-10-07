@@ -52,3 +52,5 @@ The default mode is **Only Animals**.
 
 
 The config screen can be opened from Mod Menu, and the config file can also be directly edited.
+
+Each player must run `/rideanything on` to enable right-click riding. Use `/rideanything off` to disable it, or `/rideanything toggle` to switch the setting. This per-player setting is kept in memory and resets when the server restarts.
